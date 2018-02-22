@@ -1,30 +1,172 @@
-@font-face { 
-  font-family: 'Futura PT'; 
+/*Модальное окно*/
+
+
+
+@font-face {
+  font-family: 'Futura PT';
   src: url(../fonts/FUTURAPTBOLD.otf)  format('opentype');
-  font-weight: bold; 
-  font-style: normal; 
+  font-weight: bold;
+  font-style: normal;
 }
-@font-face { 
-  font-family: 'Futura PT'; 
-  src: url(../fonts/FUTURAPTDEMI.otf)  format('opentype'); 
-  font-weight: 600; 
-  font-style: normal; 
+@font-face {
+  font-family: 'Futura PT';
+  src: url(../fonts/FUTURAPTDEMI.otf)  format('opentype');
+  font-weight: 600;
+  font-style: normal;
 }
-@font-face { 
-  font-family: 'Futura PT'; 
-  src: url(../fonts/FFUTURAPTMEDIUM.otf)  format('opentype'); 
-  font-weight: 500; 
-  font-style: normal; 
+@font-face {
+  font-family: 'Futura PT';
+  src: url(../fonts/FFUTURAPTMEDIUM.otf)  format('opentype');
+  font-weight: 500;
+  font-style: normal;
 }
-@font-face { 
-  font-family: 'PT Sans'; 
-  src: url(../fonts/PT_Sans-Web-Regular.ttf)  format('truetype'); 
-  font-weight: normal; 
-  font-style: normal; 
+@font-face {
+  font-family: 'PT Sans';
+  src: url(../fonts/PT_Sans-Web-Regular.ttf)  format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
+/*    Модальное окно - дисклеймер     */
 
+.disclaimer__container {
+   background-color: #000;
+   width: 100%;
+   height: 100%;
+   text-align: center;
+}
+.button__disclaimer{
+  display: inline-block;
+  margin: 20px;
+  padding: 0 20px;
 
+  color: #fff;
+  text-decoration: none;
+  line-height: 47px;
+  font-family: 'Futura PT', sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+
+  border: 4px solid #fff;
+
+  transition: all 0.3s linear;
+}
+
+.button__disclaimer:hover {
+  color: #000;
+  background-color: #fff;
+}
+
+.overlay {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+
+    background-color: rgba(0, 0, 0, 0.65);
+    position: fixed;
+    cursor: default;
+}
+
+.overlay:target {
+    display: block;
+}
+
+.popup {
+    top: -100%;
+    right: 0;
+    left: 50%;
+
+    z-index: 20;
+    margin: 0;
+    width: 85%;
+    min-width: 320px;
+    max-width: 500px;
+
+    position: fixed;
+    padding: 15px;
+    border: 1px solid #383838;
+    background: #fefefe;
+
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+            border-radius: 4px;
+
+    text-align: center;
+    font-family: 'Futura PT', sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+
+    -webkit-box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+       -moz-box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+        -ms-box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+            box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+    -webkit-transform: translate(-50%, -500%);
+        -ms-transform: translate(-50%, -500%);
+         -o-transform: translate(-50%, -500%);
+            transform: translate(-50%, -500%);
+    -webkit-transition: -webkit-transform 0.6s ease-out;
+          -moz-transition: -moz-transform 0.6s ease-out;
+              -o-transition: -o-transform 0.6s ease-out;
+                    transition: transform 0.6s ease-out;
+}
+.popup a{
+  display: inline-block;
+}
+.popup p{
+  text-align: left;
+}
+/* активирую модальный блок */
+.overlay:target+.popup {
+    -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+         -o-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+    top: 20%;
+}
+/* формируем кнопку закрытия */
+.close {
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    padding: 0;
+    border: 2px solid #ccc;
+
+    background-color: rgba(61, 61, 61, 0.8);
+    -webkit-box-shadow: 0px 0px 10px #000;
+       -moz-box-shadow: 0px 0px 10px #000;
+            box-shadow: 0px 0px 10px #000;
+    text-align: center;
+    text-decoration: none;
+    font: 13px/20px 'Tahoma', Arial, sans-serif;
+    font-weight: bold;
+    -webkit-transition: all ease 0.5s;
+       -moz-transition: all ease 0.5s;
+        -ms-transition: all ease 0.5s;
+         -o-transition: all ease 0.5s;
+            transition: all ease 0.5s;
+}
+.close:before {
+    color: rgba(255, 255, 255, 0.9);
+    content: "X";
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
+    font-size: 12px;
+}
+.close:hover {
+    background-color: rgba(252, 20, 0, 0.8);
+    -webkit-transform: rotate(180deg);
+       -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+         -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+}
+
+/*              Завершил модальное окно             */
 
 /*----------------------------------------------------------------------Fonts ower----------------------*/
 
@@ -43,7 +185,7 @@
  	font-family: 'Futura PT', sans-serif;
  	font-weight: 600;
  	font-size: 38px;
- 	color: #fff  
+ 	color: #fff
 }
 
 .pre-header__container{
@@ -78,7 +220,7 @@
 	height: 55px;
 	line-height: 47px;
 	margin: 0;
-	
+
 
 	font-family: 'Futura PT', sans-serif;
   	font-weight: bold;
@@ -112,7 +254,7 @@
  	font-weight: 700;
  	font-size: 15px;
 
- 	padding: 6px 0; 
+ 	padding: 6px 0;
 }
 .header-nav__link:hover {
 	border-bottom: 3px solid #74e196;
@@ -138,14 +280,14 @@
 	padding: 0 25px;
 	margin: 0;
 
- 	
-	
+
+
 	font-family: 'Futura PT', sans-serif;
  	font-weight: 600;
  	font-size: 22px;
  	color: #111;
  	text-decoration: none;
- 	
+
 }
 .header__btn{
 	display: inline-block;
@@ -173,7 +315,7 @@
 }
 
 /*------------------------Header ADAPT 768!----------------*/
-	
+
 .header__burger {display: none;}
 .pre-header__no-link-logo {display: none;}
 
@@ -207,7 +349,7 @@
 	 	font-family: 'Futura PT', sans-serif;
 	 	font-weight: 600;
 	 	font-size: 20px;
-	 	color: #fff  
+	 	color: #fff
 	}
 
 	.header__burger{
@@ -219,7 +361,7 @@
 		top: 15px;
 
 		background: url(../img/Hburger.png) no-repeat;
-		
+
 	}
 
 	.pre-header__no-link-logo{
@@ -343,12 +485,12 @@
 }
 
 .services__subtitle {
-	
+
 
 	font-family: 'Futura PT', sans-serif;
  	font-weight: 500;
  	font-size: 20px;
- 	color: #111;	
+ 	color: #111;
 }
 
 .link-arrow {
@@ -379,7 +521,7 @@
 	.third-foto {
 		display: none;
 	}
-	
+
 	.services-title {
 	margin: 0 auto;
 
@@ -443,7 +585,7 @@
 
 .why-inner__container {
 	/*
-	
+
 	position: relative;
     display: -webkit-flex;
     display: -moz-flex;
@@ -498,14 +640,14 @@
 
 /* sprite from http://css.spritegen.com/*/
 
-.why-icons { 
-	display: block; 
-	background: url('../img/why-sprite.png') no-repeat; 
-	/*overflow: hidden; text-indent: -9999px;*/ text-align: center; 
+.why-icons {
+	display: block;
+	background: url('../img/why-sprite.png') no-repeat;
+	/*overflow: hidden; text-indent: -9999px;*/ text-align: center;
 	margin: 0 auto;
-	
+
 }
- 
+
 .why-icons__6 { background-position: -20px -0px; width: 80px; height: 75px; }
 .why-icons__4 { background-position: -20px -75px; width: 61px; height: 75px; }
 .why-icons__1 { background-position: -20px -170px; width: 60px; height: 75px; }
@@ -523,7 +665,7 @@
 	}
 
 	.why-inner__container {
-	
+
 	width: 200px;
 	height: 240px;
 	text-align: left;
@@ -672,7 +814,7 @@
 	height: 360px;
 	margin: 0 auto;
 	background: url(../img/sales.png) no-repeat;
-	
+
 	background-size: cover;
 	box-shadow:0 0 0 300px rgba(0, 0, 0, 0.5) inset;
 }
@@ -686,7 +828,7 @@
 	}
 
 	.sales-inner__container {
-	
+
 	width: 200px;
 	height: 110px;
 	text-align: left;
@@ -703,7 +845,7 @@
 		font-size: 12px;
 	}
 
-	
+
 	.sales-title{
 		font-size: 24px;
 	}
@@ -736,7 +878,7 @@
 	padding: 40px 0;
 	text-align: center;
 
-	
+
 	height: 590px;
 	background:linear-gradient(to top, white 0%, transparent 80%), url(../img/team.png) no-repeat;
 	-webkit-background-size: cover;
@@ -809,9 +951,9 @@
 	.team__backdround{
 		width: 768px;
 		background:/*linear-gradient(to top, white 0%, transparent 80%),*/ url(../img/team768.png) no-repeat;
-	
+
 	background-size: 100%;
-	}	
+	}
 
 	.team__text{
 		padding-top: 400px;
@@ -851,7 +993,7 @@
 	margin: 0 auto;
 	padding-bottom: 40px;
 	width: 800px;
-	
+
 
 	text-align: center;
 
@@ -874,9 +1016,9 @@
 	text-align: center;
 	}
 	.community-title {
-	
+
 	padding-bottom: 30px;
-	
+
  	font-size: 20px;
  	color: #111;
  	}
@@ -1007,7 +1149,7 @@
 }
 
  .link-logo__tag{
- 	text-decoration: none; 
+ 	text-decoration: none;
  }
 
  .link-logo {
@@ -1032,7 +1174,7 @@
 	display: -ms-flex;
 	display: -o-flex;
 	display: flex;
-	
+
 	width: 260px;
 	list-style: none;
 	justify-content: space-between;
@@ -1048,20 +1190,20 @@
 	vertical-align: middle;
 }
 .header-nav__link:hover {
-	
+
 }
 
 .footer__btns{
 
-	
+
 	display: inline-flex;
 
 	flex-direction: row-reverse;
 	flex-wrap:wrap;
 
-	
+
 	width: 180px;
-	
+
 	}
 
 .footer__phone-btn{
@@ -1075,7 +1217,7 @@
  	font-size: 22px;
  	color: #111;
  	text-decoration: none;
- 	
+
 }
 .footer__mail-btn{
 	display: block;
@@ -1110,7 +1252,7 @@
 	width: 310px;
 	height: 45px;
 
-	
+
 	text-decoration: none;
 
 	font-family: 'Futura PT', sans-serif;
@@ -1127,21 +1269,21 @@
  	display: flex;
  	width: 590px;
 
- 	justify-content: space-between;	
+ 	justify-content: space-between;
  	list-style: none;
-	
+
  }
 
 .footer-down-link {
-	text-decoration: none; 
+	text-decoration: none;
 	color: #454545;
 
 	font-family: 'Futura PT', sans-serif;
  	font-weight: 600;
  	font-size: 18px;
- 		
 
-} 
+
+}
 
 /*------------------------Footer ADAPT 768 !----------------*/
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -1151,7 +1293,7 @@
 		background: url(../img/footer768.png);
 	}
 	.footer__container{
-		width: 768px;	
+		width: 768px;
 	}
 	.footer-down-menu{
 		display: none;
@@ -1176,7 +1318,7 @@
 		width: 100%;
 		height: 100%;
 		text-align: center;
-		
+
 		margin: 0;
 	}
 	.footer-nav__list{
@@ -1213,14 +1355,14 @@
 
 	.footer__btns{
 
-	
+
 	display: flex;
 
 	flex-direction: column;
-		
+
 	width: 180px;
 	justify-content: center;
-	
+
 	}
 }
 
@@ -1296,7 +1438,7 @@
   cursor: pointer;
  border: none;
   outline: none;
-  
+
   padding-top: 0px;
   padding-right: 0px;
 
@@ -1318,7 +1460,7 @@
 	padding-bottom: 65px;
 	text-align: center;
 	list-style: none;
-	
+
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
@@ -1329,7 +1471,7 @@
 	-ms-align-items: center;
 	align-items: center;
 	font-size: 0;
-} 
+}
 .instructor__item {
 	font-size: 0;
 	flex-grow: 1;
@@ -1353,13 +1495,13 @@
 
 .instructors__link
 img {
-	position: relative; 
+	position: relative;
 	z-index: -1;
 }
 
 .instructors__link:hover {
 	box-shadow: inset 0px 0px 300px 0px rgba(0, 0, 0, 0.0);
-	
+
 }
 .instructors__link:active {
 	box-shadow: inset 0px 0px 300px 0px rgba(116, 225, 150, 0.8);
@@ -1374,7 +1516,7 @@ img {
 	padding-bottom: 65px;
 	/*text-align: center;*/
 	list-style: none;
-	
+
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
@@ -1389,7 +1531,7 @@ img {
 .instructor__big-face{
 	width: 270px;
 	height: 270px;
-	
+
 	background: url(../img/colin270.png) no-repeat;
 }
 
@@ -1421,7 +1563,7 @@ img {
 	display: inline-block;
 	width: 32%;
 	vertical-align: top;
-	
+
 }
 
 .instructor-specialists__title{
@@ -1446,7 +1588,7 @@ p{	margin: 0 auto;
  	font-weight: 500;
  	font-size: 18px;
  	color: #111;
- 	
+
 }
 
 .instructor-specialist__info
@@ -1476,14 +1618,14 @@ img {
 	padding-right: 4px;
 	display: inline-block;
 	vertical-align: middle;
-	
+
 }
 .header__btn.like
 div {
 	padding-left: 4px;
 	display: inline-block;
 	vertical-align: middle;
-	
+
 }
 
 .thanks{
@@ -1498,7 +1640,7 @@ div {
 
 .instructor__second-row {
 	width: 1040px;
-	
+
 	margin: 0 auto;
 	padding-top: 0px;
 	padding-bottom: 65px;
@@ -1542,7 +1684,7 @@ div {
 
 .instructor__therd-row {
 	width: 1040px;
-	
+
 	margin: 0 auto;
 	padding-top: 0px;
 	margin-bottom: 70px;
@@ -1563,9 +1705,9 @@ div {
 
 	height: 225px;
 	background-image: url(../img/third.png);
-	
+
 	background-size: 100%;
-	
+
 }
 
 .therd-row__container{
@@ -1577,7 +1719,7 @@ div {
 }
 
 .therd-row__title {
-	margin-top: 40px; 
+	margin-top: 40px;
 	font-family: 'Futura PT', sans-serif;
  	font-weight: 600;
  	font-size: 20px;
@@ -1596,7 +1738,7 @@ div {
 }
 
 .therd-row__text{
-	
+
 	font-family: 'Futura PT', sans-serif;
  	font-weight: 500;
  	font-size: 16px;
@@ -1621,7 +1763,7 @@ div {
 	font-family: 'Futura PT', sans-serif;
  	font-weight: 500;
  	font-size: 20px;
- 	
+
 
 }
 
