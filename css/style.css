@@ -29,6 +29,9 @@
 
 /*    Модальное окно - дисклеймер     */
 
+*:active, *:focus {
+  outline: none
+}
 .disclaimer__container {
    background-color: #000;
    width: 100%;
