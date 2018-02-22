@@ -916,8 +916,10 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	width: 225px;
-	height: 46px;
+	width: 320px;
+	height: 46px; /* я хотел, конечно, оставить сайт совсем без изменений,
+  относительно создания, но этот кошмар с выпадающим текстом из кнопки
+  оставить не могу*/
 	margin: 0 auto;
 
 	font-family: 'Futura PT', sans-serif;
